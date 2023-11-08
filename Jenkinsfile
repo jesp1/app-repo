@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'gitops-jenkins-jenkins-slave'
+        label 'jenkins-slave'
     }
     stages {
         stage('Get Source') {
