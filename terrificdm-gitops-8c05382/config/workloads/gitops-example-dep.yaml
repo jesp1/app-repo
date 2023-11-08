@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-example-deployment
+  namespace: gitops-cicd
+  labels:
+    app: gitops-example
+  annotations:
+    # Container Image Automated Updates
+    fluxcd.io/automated: "true"
+spec:
+  selector:
+    matchLabels:
+      app: gitops-example
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: gitops-example
+    spec:
+      containers:
+      - name: gitops-example
+        image: <your image URL>
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+
