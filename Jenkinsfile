@@ -6,7 +6,7 @@ pipeline {
         stage('Get Source') {
             steps {
                 echo "1.Clone Repo Stage"
-                git credentialsId: 'github', url: 'https://github.com/jesp1/gitops-app'
+                git credentialsId: 'GithubAccess', url: 'https://github.com/jesp1/gitops-app'
                 script {
                     build_tag = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
                     repo_name = '703175063703.dkr.ecr.us-west-2.amazonaws.com'
